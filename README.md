@@ -1,18 +1,16 @@
-# ime.gvim - GVim Input Method Optimization Plugin
+# ime.gvim - GVim 输入法优化插件
 
-When using input methods in Vim, it's common to encounter inconvenient mode
-switching. This plugin intelligently manages input method states to provide
-a smooth input experience.
+在 Vim 中使用输入法时，常遇到模式切换不便的问题。本插件通过智能管理输入法状态，
+提供流畅的输入体验。
 
-## Dependencies
+## 依赖
 
 > [!WARNING]
-> This configuration depends on the effectiveness of the `imdisable` option.
-> Please ensure your GVim supports this feature.
+> 本配置依赖 `imdisable` 选项的有效性，请确保您的 GVim 支持此功能。
 
-## Installation and Configuration
+## 安装与配置
 
-Add the following configuration to your `gvimrc` file:
+将以下配置添加到您的 `gvimrc` 文件中：
 
 ```Vim
 noremap ? <Cmd>set noimdisable<CR>?
@@ -23,19 +21,18 @@ cnoremap <CR> <Cmd>set imdisable<CR><CR>
 cnoremap <C-[> <Cmd>set imdisable<CR><CR>
 augroup IME
     au!
-    au GUIEnter * set imdisable           " Disable input method at startup
-    au InsertEnter * set noimdisable      " Enable when entering insert mode
-    au InsertLeavePre * set imdisable     " Disable when leaving insert mode
+    au GUIEnter * set imdisable           " 启动时禁用输入法
+    au InsertEnter * set noimdisable      " 进入插入模式启用
+    au InsertLeavePre * set imdisable     " 离开插入模式禁用
 augroup END
 ```
 
-This will achieve an input-method-free environment in normal mode.
+即可实现在 normal 模式下无输入法的干扰。
 
-## Contribution
+## 贡献
 
-As my ability is limited, if you have better suggestions, welcome to submit an
-Issue or PR!
+由于本人的能力有限，如果您有更好的意见，欢迎提交 Issue 或 PR！
 
-## License
+## 许可证
 
 MIT © mao-yining
